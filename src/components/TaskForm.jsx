@@ -6,7 +6,10 @@ const TaskForm = () => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "todo",
+    tags: [],
   });
+
+  const selectTag = () => {};
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,17 +24,6 @@ const TaskForm = () => {
     console.log(taskData);
   };
 
-  // const [task, setTask] = useState("");
-  // const [status, setStatus] = useState("todo")
-
-  // const handleTaskChanege = (e) => {
-  //   setTask(e.target.value);
-  // }
-
-  // const handleStatusChange = (e) => {
-  //   setStatus(e.target.value);
-  // }
-
   return (
     <header className="app_header">
       <form onSubmit={handleSubmit}>
@@ -44,12 +36,11 @@ const TaskForm = () => {
         />
         <div className="task_form_bottom_line">
           <div>
-            <Tag tagName="HTML" />
-            <Tag tagName="CSS" />
-            <Tag tagName="JavaScript" />
-            <Tag tagName="React.JS" />
+            <Tag tagName="HTML" selectTag={selectTag} />
+            <Tag tagName="CSS" selectTag={selectTag} />
+            <Tag tagName="JavaScript" selectTag={selectTag} />
+            <Tag tagName="React.JS" selectTag={selectTag} />
           </div>
-
           <div>
             <select
               className="task_status"
